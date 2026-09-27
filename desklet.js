@@ -62,7 +62,7 @@ class CinnamonClockDesklet extends Desklet.Desklet {
         this.settings.bind("date-format", "format");
         this.settings.bind("text-color", "text_color", this._onSettingsChanged);
         this.settings.bind("container-color", "container_color", this._onSettingsChanged);
-        this.settings.bind("bg-image", "bg_image", this._onSettingsChanged); // <--- BIND DA IMAGEM
+        this.settings.bind("bg-image", "bg_image", this._onSettingsChanged); 
         this.settings.bind("use-custom-format", "use_custom_format", this._onSettingsChanged);
 
         this._menu.addSettingsAction(_("Date and Time Settings"), "calendar");

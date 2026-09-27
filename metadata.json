@@ -1,7 +1,7 @@
 {
- "uuid": "clock@cinnamon.org",
- "name": "Clock desklet",
- "description": "A desklet that displays the time",
+ "uuid": "macos-clock@cinnamon.org",
+ "name": "MacOS Clock desklet for Linux mint",
+ "description": "A desklet that displays the time, but cuter",
  "icon": "gnome-calendar",
  "prevent-decorations": false,
  "max-instances": "100"
