@@ -28,11 +28,23 @@ class CinnamonClockDesklet extends Desklet.Desklet {
             y_align: Clutter.ActorAlign.START
         });
 
-        this._box = new St.BoxLayout({
+        this._dayLabel = new St.Label({
+            style_class: "clock-desklet-day",
+            x_align: Clutter.ActorAlign.START,
+            y_align: Clutter.ActorAlign.START
+        });
+
+        this._topBox = new St.BoxLayout({
             vertical: false
         });
-        this._box.add_actor(this._date);
-        this._box.add_actor(this._ampmLabel);
+        this._topBox.add_actor(this._date);
+        this._topBox.add_actor(this._ampmLabel);
+
+        this._box = new St.BoxLayout({
+            vertical: true
+        });
+        this._box.add_actor(this._topBox);
+        this._box.add_actor(this._dayLabel);
 
         this._container = new St.Bin({
             style_class: "clock-desklet-container",
@@ -65,6 +77,7 @@ class CinnamonClockDesklet extends Desklet.Desklet {
 
         this._date.set_style("color: " + fontColor + ";");
         this._ampmLabel.set_style("color: " + fontColor + ";");
+        this._dayLabel.set_style("color: " + fontColor + ";");
         this._container.set_style("background-color: " + containerColor + ";"); 
 
         this._updateFormatString();
@@ -101,13 +114,16 @@ class CinnamonClockDesklet extends Desklet.Desklet {
         if (this.use_custom_format) {
             this._date.set_text(this.clock.get_clock());
             this._ampmLabel.set_text("");
+            this._dayLabel.set_text("");
         } else {
-
             let time_format = "%-l:%M";
             this._date.set_text(this.clock.get_clock_for_format(time_format));
 
             let ampm_format = "%p";
             this._ampmLabel.set_text(this.clock.get_clock_for_format(ampm_format));
+
+            let date_format = "%a, %B %-d";
+            this._dayLabel.set_text(this.clock.get_clock_for_format(date_format));
         }
     }
 }

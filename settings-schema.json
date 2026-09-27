@@ -23,5 +23,12 @@
         "default": "%l:%M %p",
         "description": "Date format",
         "tooltip" : "Set your custom format here."
+    },
+    "directory": {
+        "default": " ", 
+        "type": "filechooser", 
+        "description" : "Folder",
+        "allow-none" : false,
+        "select-dir" : true
     }
 }
