@@ -62,6 +62,7 @@ class CinnamonClockDesklet extends Desklet.Desklet {
         this.settings.bind("date-format", "format");
         this.settings.bind("text-color", "text_color", this._onSettingsChanged);
         this.settings.bind("container-color", "container_color", this._onSettingsChanged);
+        this.settings.bind("bg-image", "bg_image", this._onSettingsChanged); // <--- BIND DA IMAGEM
         this.settings.bind("use-custom-format", "use_custom_format", this._onSettingsChanged);
 
         this._menu.addSettingsAction(_("Date and Time Settings"), "calendar");
@@ -78,7 +79,16 @@ class CinnamonClockDesklet extends Desklet.Desklet {
         this._date.set_style("color: " + fontColor + ";");
         this._ampmLabel.set_style("color: " + fontColor + ";");
         this._dayLabel.set_style("color: " + fontColor + ";");
-        this._container.set_style("background-color: " + containerColor + ";"); 
+
+        if (this.bg_image && this.bg_image !== "") {
+            this._container.set_style(
+                "background-image: url('" + this.bg_image + "'); " +
+                "background-size: cover; " +
+                "background-position: center;"
+            );
+        } else {
+            this._container.set_style("background-color: " + containerColor + ";"); 
+        }
 
         this._updateFormatString();
         this._updateClock();

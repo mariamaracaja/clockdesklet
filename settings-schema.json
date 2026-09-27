@@ -24,11 +24,11 @@
         "description": "Date format",
         "tooltip" : "Set your custom format here."
     },
-    "directory": {
-        "default": " ", 
-        "type": "filechooser", 
-        "description" : "Folder",
-        "allow-none" : false,
-        "select-dir" : true
+    "bg-image": {
+        "type": "filechooser",
+        "default": "",
+        "description": "Background photo",
+        "tooltip": "Select an image file for the container background. Clear the selection for no image.",
+        "select-dir": false
     }
 }
