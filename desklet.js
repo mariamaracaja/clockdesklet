@@ -10,26 +10,26 @@ function _(str) {
     return Gettext.dgettext("cinnamon", str);
 }
 
-class CinnamonClockDesklet extends Desklet.Desklet {
+class MacosClockDesklet extends Desklet.Desklet {
     constructor(metadata, desklet_id) {
         super(metadata, desklet_id);
         
         this.metadata["prevent-decorations"] = true;
 
         this._date = new St.Label({
-            style_class: "clock-desklet-label",
+            style_class: "macosclock-desklet-label",
             x_align: Clutter.ActorAlign.START,
             y_align: Clutter.ActorAlign.START
         });
 
         this._ampmLabel = new St.Label({
-            style_class: "clock-desklet-ampm",
+            style_class: "macosclock-desklet-ampm",
             x_align: Clutter.ActorAlign.START,
             y_align: Clutter.ActorAlign.START
         });
 
         this._dayLabel = new St.Label({
-            style_class: "clock-desklet-day",
+            style_class: "macosclock-desklet-day",
             x_align: Clutter.ActorAlign.START,
             y_align: Clutter.ActorAlign.START
         });
@@ -47,7 +47,7 @@ class CinnamonClockDesklet extends Desklet.Desklet {
         this._box.add_actor(this._dayLabel);
 
         this._container = new St.Bin({
-            style_class: "clock-desklet-container",
+            style_class: "macosclock-desklet-container",
             x_align: Clutter.ActorAlign.START,
             y_align: Clutter.ActorAlign.START
         });
@@ -139,5 +139,5 @@ class CinnamonClockDesklet extends Desklet.Desklet {
 }
 
 function main(metadata, desklet_id) {
-    return new CinnamonClockDesklet(metadata, desklet_id);
+    return new MacosClockDesklet(metadata, desklet_id);
 }
